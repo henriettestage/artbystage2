@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title": "Naturens Flow",
+    "slug": "naturens-flow",
+    "shortDescription": "En abstrakt tolkning af vands bevægelse gennem landskabet.",
+    "longDescription": "Dette værk udforsker kontrasten mellem struktur og kaos, inspireret af observationer af naturens uendelige bevægelsesmønster. Farvepaletten er subtil og nuanceret, hvilket skaber dybde og refleksion.",
+    "dimensions": "80 x 120 cm",
+    "type": "Akryl på lærred",
+    "price": 4500,
+    "images": ["naturens-flow-1.jpg", "naturens-flow-2.jpg"],
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Skyernes Dans",
+    "slug": "skyernes-dans",
+    "shortDescription": "Abstrakt udforskning af skydannelser og lys.",
+    "longDescription": "En dynamisk komposition der fanger essensen af sommerskyer i bevægelse. Værket blender naturalistiske elementer med abstraherede former, hvilket skaber en drømmende kvalitet.",
+    "dimensions": "100 x 150 cm",
+    "type": "Blandet teknik på lærred",
+    "price": 5500,
+    "images": ["skyernes-dans-1.jpg"],
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Skovens Hjerte",
+    "slug": "skovens-hjerte",
+    "shortDescription": "En naturalistisk og abstrakt hyldest til skoven.",
+    "longDescription": "Dette værk kombinerer minutiøse naturalistiske detaljer med ekspressive abstrakte passager. Det er inspireret af stille øjeblikke i skovens indre, hvor lys filtrer gennem træerne.",
+    "dimensions": "60 x 80 cm",
+    "type": "Akryl på lærred",
+    "price": 3200,
+    "images": ["skovens-hjerte-1.jpg"],
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Havets Hvislende",
+    "slug": "havets-hvislende",
+    "shortDescription": "Abstraheret fremstilling af havbølgers lyd og rytme.",
+    "longDescription": "Værket handler om at fange den usynlige lyd af havet gennem farve og form. Blåtonerne dominerer, men der er uventede varme farvetoner der skaber spænding.",
+    "dimensions": "90 x 130 cm",
+    "type": "Akryl på lærred",
+    "price": 4800,
+    "images": ["havets-hvislende-1.jpg"],
+    "featured": true
+  },
+  {
+    "id": 5,
+    "title": "Aften Melody",
+    "slug": "aften-melody",
+    "shortDescription": "Stille moment under solnedgang.",
+    "longDescription": "En naturalistisk skildring af en sommeraften, hvor farver transformerer fra varm til kølig. Værket formidler ro og refleksion.",
+    "dimensions": "70 x 100 cm",
+    "type": "Akryl på lærred",
+    "price": 3800,
+    "images": ["aften-melody-1.jpg"],
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "Græssets Hemmeligheder",
+    "slug": "graessets-hemmeligheder",
+    "shortDescription": "Nærsigtede studie af græs og jord.",
+    "longDescription": "Ved at zoome ind på det små og ofte oversete, afslører dette værk kompleksiteten i naturens mikroverden. Farverne er jordede med fornemme highlights.",
+    "dimensions": "50 x 70 cm",
+    "type": "Blandet teknik på lærred",
+    "price": 2800,
+    "images": ["graessets-hemmeligheder-1.jpg"],
+    "featured": false
+  },
+  {
+    "id": 7,
+    "title": "Bjergenes Silhuet",
+    "slug": "bjergenes-silhuet",
+    "shortDescription": "Abstrakt landskab inspireret af alperne.",
+    "longDescription": "Et værk der lagdeler farve og form for at skabe en følelse af dybde og distance. Bergenes konturer er både klare og uklare, symboliserer hvordan vi husker landskaber.",
+    "dimensions": "85 x 110 cm",
+    "type": "Akryl på lærred",
+    "price": 4200,
+    "images": ["bjergenes-silhuet-1.jpg"],
+    "featured": false
+  },
+  {
+    "id": 8,
+    "title": "Naturens Spiraler",
+    "slug": "naturens-spiraler",
+    "shortDescription": "Eksplorativ studie af matematisk skønhed i naturen.",
+    "longDescription": "Værket handler om at finde mønster og struktur i kaos. Fibonacci-spiraler vises gennem organiske former, der er både naturalistiske og abstrakte.",
+    "dimensions": "65 x 95 cm",
+    "type": "Akryl på lærred",
+    "price": 3600,
+    "images": ["naturens-spiraler-1.jpg"],
+    "featured": false
+  }
+]
