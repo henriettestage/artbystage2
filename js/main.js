@@ -57,18 +57,50 @@ function initHeroSlideshow() {
         heroSlides.appendChild(slide);
     });
 
+    // Create indicators
+    const slideIndicators = document.getElementById('slideIndicators');
+    featuredForSlideshow.forEach((artwork, index) => {
+        const indicator = document.createElement('div');
+        indicator.className = `indicator ${index === 0 ? 'active' : ''}`;
+        indicator.addEventListener('click', () => goToSlide(index, featuredForSlideshow));
+        slideIndicators.appendChild(indicator);
+    });
+
+    // Add slide number display
+    const slideNumber = document.createElement('span');
+    slideNumber.className = 'slide-number';
+    slideNumber.id = 'slideNumber';
+    slideNumber.textContent = `0${currentSlide + 1}`;
+    slideIndicators.appendChild(slideNumber);
+
+    // Update hero text with first artwork
+    updateHeroText(featuredForSlideshow[0]);
+
+    // Button listeners
+    document.getElementById('prevBtn').addEventListener('click', () => prevSlide(featuredForSlideshow));
+    document.getElementById('nextBtn').addEventListener('click', () => nextSlide(featuredForSlideshow));
+
     // Start slideshow
-    startSlideshow();
+    startSlideshow(featuredForSlideshow);
 
     // Handle hover pause/resume
     const heroSlideshow = document.getElementById('heroSlideshow');
     if (heroSlideshow) {
         heroSlideshow.addEventListener('mouseenter', pauseSlideshow);
-        heroSlideshow.addEventListener('mouseleave', startSlideshow);
+        heroSlideshow.addEventListener('mouseleave', () => startSlideshow(featuredForSlideshow));
     }
 }
 
-function startSlideshow() {
+function updateHeroText(artwork) {
+    const heroTitle = document.getElementById('heroTitle');
+    const heroSubtitle = document.getElementById('heroSubtitle');
+    if (heroTitle && heroSubtitle) {
+        heroTitle.textContent = artwork.title;
+        heroSubtitle.textContent = artwork.shortDescription;
+    }
+}
+
+function startSlideshow(slides) {
     // Clear existing interval
     if (slideshowInterval) {
         clearInterval(slideshowInterval);
@@ -76,8 +108,63 @@ function startSlideshow() {
 
     // Set up new interval
     slideshowInterval = setInterval(() => {
-        nextSlide();
+        nextSlide(slides);
     }, 5000);
+}
+
+function nextSlide(slides) {
+    const slideElements = document.querySelectorAll('.slide');
+    if (slideElements.length === 0) return;
+
+    slideElements[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slideElements.length;
+    slideElements[currentSlide].classList.add('active');
+
+    updateIndicators();
+    updateHeroText(slides[currentSlide]);
+}
+
+function prevSlide(slides) {
+    const slideElements = document.querySelectorAll('.slide');
+    if (slideElements.length === 0) return;
+
+    slideElements[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide - 1 + slideElements.length) % slideElements.length;
+    slideElements[currentSlide].classList.add('active');
+
+    updateIndicators();
+    updateHeroText(slides[currentSlide]);
+}
+
+function goToSlide(index, slides) {
+    const slideElements = document.querySelectorAll('.slide');
+    slideElements[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slideElements[currentSlide].classList.add('active');
+
+    updateIndicators();
+    updateHeroText(slides[currentSlide]);
+    
+    // Restart slideshow timer
+    pauseSlideshow();
+    startSlideshow(slides);
+}
+
+function updateIndicators() {
+    const indicators = document.querySelectorAll('.indicator');
+    const slideNumber = document.getElementById('slideNumber');
+    
+    indicators.forEach((indicator, index) => {
+        if (index === currentSlide) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
+
+    if (slideNumber) {
+        slideNumber.textContent = `0${currentSlide + 1}`;
+    }
 }
 
 function pauseSlideshow() {
@@ -85,15 +172,6 @@ function pauseSlideshow() {
         clearInterval(slideshowInterval);
         slideshowInterval = null;
     }
-}
-
-function nextSlide() {
-    const slides = document.querySelectorAll('.slide');
-    if (slides.length === 0) return;
-
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
 }
 
 // ==================== Featured Artworks (Home Page) ====================
