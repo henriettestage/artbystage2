@@ -27,7 +27,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function loadArtworks() {
     try {
-        const response = await fetch('./data/artworks.json');
+        // Detect if we're on a pages/ subdirectory
+        const isSubpage = window.location.pathname.includes('/pages/');
+        const jsonPath = isSubpage ? '../data/artworks.json' : './data/artworks.json';
+        
+        const response = await fetch(jsonPath);
         artworks = await response.json();
     } catch (error) {
         console.error('Error loading artworks:', error);
@@ -50,7 +54,8 @@ function initHeroSlideshow() {
         slide.className = `slide ${index === 0 ? 'active' : ''}`;
         
         const img = document.createElement('img');
-        img.src = `./images/artworks/${artwork.images[0]}`;
+        const basePath = window.location.pathname.includes('/pages/') ? '../images/artworks/' : './images/artworks/';
+        img.src = basePath + artwork.images[0];
         img.alt = artwork.title;
         
         slide.appendChild(img);
@@ -211,7 +216,10 @@ function createArtworkCard(artwork) {
     imageDiv.className = 'artwork-image';
     
     const img = document.createElement('img');
-    img.src = `./images/artworks/${artwork.images[0]}`;
+    // Detect if we're on a pages/ subdirectory
+    const isSubpage = window.location.pathname.includes('/pages/');
+    const basePath = isSubpage ? '../images/artworks/' : './images/artworks/';
+    img.src = basePath + artwork.images[0];
     img.alt = artwork.title;
     
     imageDiv.appendChild(img);
@@ -287,7 +295,8 @@ function loadArtworkDetail() {
     mainImageDiv.className = 'main-image';
     const mainImg = document.createElement('img');
     mainImg.id = 'mainImage';
-    mainImg.src = `./images/artworks/${artwork.images[0]}`;
+    const basePath = window.location.pathname.includes('/pages/') ? '../images/artworks/' : './images/artworks/';
+    mainImg.src = basePath + artwork.images[0];
     mainImg.alt = artwork.title;
     mainImageDiv.appendChild(mainImg);
 
@@ -303,7 +312,7 @@ function loadArtworkDetail() {
             thumb.className = `thumbnail ${index === 0 ? 'active' : ''}`;
 
             const thumbImg = document.createElement('img');
-            thumbImg.src = `./images/artworks/${image}`;
+            thumbImg.src = basePath + image;
             thumbImg.alt = `${artwork.title} thumbnail ${index + 1}`;
 
             thumb.appendChild(thumbImg);
@@ -314,7 +323,7 @@ function loadArtworkDetail() {
                 thumb.classList.add('active');
 
                 // Update main image
-                document.getElementById('mainImage').src = `./images/artworks/${image}`;
+                document.getElementById('mainImage').src = basePath + image;
             });
 
             thumbnailDiv.appendChild(thumb);
@@ -393,7 +402,13 @@ function loadArtworkDetail() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const currentPath = window.location.pathname;
+    const navBar = document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.nav-link');
+
+    // Add navbar-home class on home page
+    if (currentPath.includes('index.html') || currentPath.endsWith('/') || currentPath.endsWith('/artbystage2/')) {
+        navBar.classList.add('navbar-home');
+    }
 
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
