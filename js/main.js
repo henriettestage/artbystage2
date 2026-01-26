@@ -41,8 +41,8 @@ function initHeroSlideshow() {
     const heroSlides = document.getElementById('heroSlides');
     if (!heroSlides) return;
 
-    // Get the 4 most recent artworks (indices 4-7)
-    const featuredForSlideshow = artworks.slice(-4).reverse();
+    // Get featured artworks for slideshow
+    const featuredForSlideshow = artworks.filter(art => art.featured);
 
     // Create slides
     featuredForSlideshow.forEach((artwork, index) => {

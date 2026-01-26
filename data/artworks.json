@@ -8,7 +8,7 @@
     "dimensions": "80 x 120 cm",
     "type": "Akryl på lærred",
     "price": 4500,
-    "images": ["naturens-flow-1.jpg", "naturens-flow-2.jpg"],
+    "images": ["hero_1.jpg"],
     "featured": true
   },
   {
@@ -20,7 +20,7 @@
     "dimensions": "100 x 150 cm",
     "type": "Blandet teknik på lærred",
     "price": 5500,
-    "images": ["skyernes-dans-1.jpg"],
+    "images": ["hero_2.jpg"],
     "featured": true
   },
   {
@@ -32,7 +32,7 @@
     "dimensions": "60 x 80 cm",
     "type": "Akryl på lærred",
     "price": 3200,
-    "images": ["skovens-hjerte-1.jpg"],
+    "images": ["hero_3.jpg"],
     "featured": true
   },
   {
