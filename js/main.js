@@ -198,9 +198,49 @@ function loadFeaturedArtworks() {
 
 function loadGallery() {
     const galleryGrid = document.getElementById('galleryGrid');
+    const filterButtons = document.getElementById('filterButtons');
     if (!galleryGrid) return;
 
-    artworks.forEach(artwork => {
+    // Get unique types for filter buttons
+    const uniqueTypes = [...new Set(artworks.map(art => art.type))];
+    
+    // Create filter buttons
+    if (filterButtons) {
+        // Add "All" button
+        const allBtn = document.createElement('button');
+        allBtn.className = 'filter-btn active';
+        allBtn.textContent = 'Alle';
+        allBtn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            allBtn.classList.add('active');
+            displayGallery(artworks);
+        });
+        filterButtons.appendChild(allBtn);
+
+        // Add type buttons
+        uniqueTypes.forEach(type => {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.textContent = type;
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filtered = artworks.filter(art => art.type === type);
+                displayGallery(filtered);
+            });
+            filterButtons.appendChild(btn);
+        });
+    }
+
+    // Display all artworks initially
+    displayGallery(artworks);
+}
+
+function displayGallery(artworksToDisplay) {
+    const galleryGrid = document.getElementById('galleryGrid');
+    galleryGrid.innerHTML = ''; // Clear grid
+    
+    artworksToDisplay.forEach(artwork => {
         const card = createArtworkCard(artwork);
         galleryGrid.appendChild(card);
     });
@@ -243,6 +283,13 @@ function createArtworkCard(artwork) {
     const title = document.createElement('h3');
     title.textContent = artwork.title;
 
+    // Add type/medium
+    const typeSpan = document.createElement('p');
+    typeSpan.style.fontSize = '0.85rem';
+    typeSpan.style.color = '#888';
+    typeSpan.style.marginBottom = '0.5rem';
+    typeSpan.textContent = artwork.type;
+
     const description = document.createElement('p');
     description.textContent = artwork.shortDescription;
 
@@ -261,6 +308,7 @@ function createArtworkCard(artwork) {
     metaDiv.appendChild(price);
 
     infoDiv.appendChild(title);
+    infoDiv.appendChild(typeSpan);
     infoDiv.appendChild(description);
     infoDiv.appendChild(metaDiv);
 
@@ -363,6 +411,14 @@ function loadArtworkDetail() {
     const title = document.createElement('h1');
     title.textContent = artwork.title;
 
+    // Add type/medium
+    const typeInfo = document.createElement('p');
+    typeInfo.style.fontSize = '1rem';
+    typeInfo.style.color = '#888';
+    typeInfo.style.marginBottom = '1rem';
+    typeInfo.style.letterSpacing = '1px';
+    typeInfo.textContent = artwork.type.toUpperCase();
+
     const price = document.createElement('div');
     price.className = 'detail-price';
     price.textContent = `${artwork.price.toLocaleString('da-DK')} kr.`;
@@ -411,6 +467,7 @@ function loadArtworkDetail() {
     `;
 
     infoDiv.appendChild(title);
+    infoDiv.appendChild(typeInfo);
     infoDiv.appendChild(price);
     infoDiv.appendChild(specsDiv);
     infoDiv.appendChild(description);
