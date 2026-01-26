@@ -324,6 +324,33 @@ body {
 
 /* ==================== Featured Section ==================== */
 
+.intro-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.intro-section h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.intro-section p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro-section p:last-child {
+    margin-bottom: 0;
+}
+
 .featured-section {
     padding: 4rem 0;
     background-color: var(--white);
