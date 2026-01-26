@@ -664,7 +664,7 @@ body {
 }
 
 .about-content {
-    background-color: var(--light-bg);
+    background-color: transparent;
     padding: 3rem;
     border-radius: 8px;
     line-height: 1.8;
