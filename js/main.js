@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Initialize components based on current page
         const path = window.location.pathname;
         
-        if (path.includes('index.html') || path.endsWith('/') || path.endsWith('/artbystage2/')) {
+        if (path.includes('index') || path.endsWith('/') || path.endsWith('/artbystage2/')) {
             initHeroSlideshow();
             loadFeaturedArtworks();
-        } else if (path.includes('gallery.html')) {
+        } else if (path.includes('gallery')) {
             loadGallery();
-        } else if (path.includes('detail.html')) {
+        } else if (path.includes('detail')) {
             loadArtworkDetail();
         }
     }, 100);
