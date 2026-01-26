@@ -4,9 +4,66 @@ let artworks = [];
 let currentSlide = 0;
 let slideshowInterval = null;
 
+// ==================== Mobile Menu Functionality ====================
+
+function initMobileMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const closeBtn = document.getElementById('closeBtn');
+    const mobileMenuHeader = document.querySelector('.mobile-menu-header');
+
+    if (!hamburger || !navMenu) return;
+
+    // Toggle menu on hamburger click
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        if (mobileMenuHeader) {
+            mobileMenuHeader.classList.toggle('active');
+        }
+    });
+
+    // Close menu on close button click
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            if (mobileMenuHeader) {
+                mobileMenuHeader.classList.remove('active');
+            }
+        });
+    }
+
+    // Close menu when a link is clicked
+    const navLinks = navMenu.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            if (mobileMenuHeader) {
+                mobileMenuHeader.classList.remove('active');
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            if (mobileMenuHeader) {
+                mobileMenuHeader.classList.remove('active');
+            }
+        }
+    });
+}
+
 // ==================== Initialize ====================
 
 document.addEventListener('DOMContentLoaded', async () => {
+    // Initialize mobile menu
+    initMobileMenu();
+
     // Load artworks data
     await loadArtworks();
     
