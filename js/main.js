@@ -211,6 +211,11 @@ function loadGallery() {
 function createArtworkCard(artwork) {
     const card = document.createElement('div');
     card.className = 'artwork-card';
+    
+    // Add sold class if artwork is sold
+    if (artwork.sold) {
+        card.classList.add('sold');
+    }
 
     const imageDiv = document.createElement('div');
     imageDiv.className = 'artwork-image';
@@ -223,6 +228,14 @@ function createArtworkCard(artwork) {
     img.alt = artwork.title;
     
     imageDiv.appendChild(img);
+
+    // Add sold label if artwork is sold
+    if (artwork.sold) {
+        const soldLabel = document.createElement('div');
+        soldLabel.className = 'sold-label';
+        soldLabel.textContent = 'Solgt!';
+        imageDiv.appendChild(soldLabel);
+    }
 
     const infoDiv = document.createElement('div');
     infoDiv.className = 'artwork-info';
@@ -256,7 +269,9 @@ function createArtworkCard(artwork) {
 
     // Click to go to detail page
     card.addEventListener('click', () => {
-        window.location.href = `detail.html?slug=${artwork.slug}`;
+        const isSubpage = window.location.pathname.includes('/pages/');
+        const detailPath = isSubpage ? `detail.html?slug=${artwork.slug}` : `pages/detail.html?slug=${artwork.slug}`;
+        window.location.href = detailPath;
     });
 
     return card;
@@ -293,12 +308,21 @@ function loadArtworkDetail() {
 
     const mainImageDiv = document.createElement('div');
     mainImageDiv.className = 'main-image';
+    mainImageDiv.style.position = 'relative';
     const mainImg = document.createElement('img');
     mainImg.id = 'mainImage';
     const basePath = window.location.pathname.includes('/pages/') ? '../images/artworks/' : './images/artworks/';
     mainImg.src = basePath + artwork.images[0];
     mainImg.alt = artwork.title;
     mainImageDiv.appendChild(mainImg);
+
+    // Add sold label if artwork is sold
+    if (artwork.sold) {
+        const soldLabel = document.createElement('div');
+        soldLabel.className = 'sold-label';
+        soldLabel.textContent = 'Solgt!';
+        mainImageDiv.appendChild(soldLabel);
+    }
 
     imagesDiv.appendChild(mainImageDiv);
 

@@ -9,7 +9,8 @@
     "type": "Akryl på lærred",
     "price": 4500,
     "images": ["hero_1.jpg"],
-    "featured": true
+    "featured": true,
+    "sold": true
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "type": "Blandet teknik på lærred",
     "price": 5500,
     "images": ["hero_2.jpg"],
-    "featured": true
+    "featured": true,
+    "sold": false
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "type": "Akryl på lærred",
     "price": 3200,
     "images": ["hero_3.jpg"],
-    "featured": true
+    "featured": true,
+    "sold": false
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
     "type": "Akryl på lærred",
     "price": 4800,
     "images": ["havets-hvislende-1.jpg"],
-    "featured": true
+    "featured": true,
+    "sold": false
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
     "type": "Akryl på lærred",
     "price": 3800,
     "images": ["aften-melody-1.jpg"],
-    "featured": false
+    "featured": false,
+    "sold": false
   },
   {
     "id": 6,
@@ -69,7 +74,8 @@
     "type": "Blandet teknik på lærred",
     "price": 2800,
     "images": ["graessets-hemmeligheder-1.jpg"],
-    "featured": false
+    "featured": false,
+    "sold": false
   },
   {
     "id": 7,
@@ -81,7 +87,8 @@
     "type": "Akryl på lærred",
     "price": 4200,
     "images": ["bjergenes-silhuet-1.jpg"],
-    "featured": false
+    "featured": false,
+    "sold": false
   },
   {
     "id": 8,
@@ -93,6 +100,7 @@
     "type": "Akryl på lærred",
     "price": 3600,
     "images": ["naturens-spiraler-1.jpg"],
-    "featured": false
+    "featured": false,
+    "sold": false
   }
 ]
