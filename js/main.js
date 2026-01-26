@@ -10,17 +10,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Load artworks data
     await loadArtworks();
     
-    // Initialize components based on current page
-    const path = window.location.pathname;
-    
-    if (path.includes('index.html') || path.endsWith('/')) {
-        initHeroSlideshow();
-        loadFeaturedArtworks();
-    } else if (path.includes('gallery.html')) {
-        loadGallery();
-    } else if (path.includes('detail.html')) {
-        loadArtworkDetail();
-    }
+    // Wait a bit to ensure artworks are loaded
+    setTimeout(() => {
+        // Initialize components based on current page
+        const path = window.location.pathname;
+        
+        if (path.includes('index.html') || path.endsWith('/') || path.endsWith('/artbystage2/')) {
+            initHeroSlideshow();
+            loadFeaturedArtworks();
+        } else if (path.includes('gallery.html')) {
+            loadGallery();
+        } else if (path.includes('detail.html')) {
+            loadArtworkDetail();
+        }
+    }, 100);
 });
 
 // ==================== Load Artworks ====================
