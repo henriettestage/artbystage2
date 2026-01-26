@@ -28,7 +28,7 @@
         "images": [
             "hero_2.jpg"
         ],
-        "featured": true,
+        "featured": false,
         "sold": true
     },
     {
@@ -60,13 +60,13 @@
         "images": [
             "hero_4.jpg"
         ],
-        "featured": true,
+        "featured": false,
         "sold": true
     },
     {
         "id": 5,
-        "title": "Spænding",
-        "slug": "spaending",
+        "title": "Nude",
+        "slug": "nude",
         "category": "Abstrakt",
         "shortDescription": "Et værk skabt i mødet mellem impulsiv bevægelse og klar intention.",
         "longDescription": "De sorte linjer opstår spontant med drippingteknik og er forankret i en bevidst retning. Resultatet er en figur, der balancerer mellem kontrol og frihed, hvor kroppen fremstår som både struktur og energi i konstant forandring.",
