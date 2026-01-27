@@ -26,3 +26,5 @@ build/
 
 # Netlify
 .netlify/
+# Admin editor (local only)
+admin/
