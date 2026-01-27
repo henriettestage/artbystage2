@@ -499,7 +499,6 @@ function loadArtworkDetail() {
     inquiryForm.className = 'contact-form inquiry-form';
     inquiryForm.setAttribute('name', 'inquiry');
     inquiryForm.setAttribute('method', 'POST');
-    inquiryForm.setAttribute('netlify', 'true');
 
     inquiryForm.innerHTML = `
         <h3>Send Forespørgsel</h3>
@@ -525,6 +524,42 @@ function loadArtworkDetail() {
 
         <button type="submit" class="submit-button">Send Forespørgsel</button>
     `;
+
+    // Add AJAX submission handler
+    inquiryForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(inquiryForm);
+        const body = new URLSearchParams(formData);
+        
+        try {
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: body.toString()
+            });
+            
+            if (response.ok) {
+                // Replace form with success message
+                const successDiv = document.createElement('div');
+                successDiv.className = 'success-message';
+                successDiv.textContent = 'Tak for din forespørgsel! Vi kontakter dig snart.';
+                
+                inquiryForm.style.animation = 'fadeOut 0.5s ease-out forwards';
+                
+                setTimeout(() => {
+                    inquiryForm.replaceWith(successDiv);
+                }, 500);
+            } else {
+                alert('Der opstod en fejl. Prøv venligst igen.');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            alert('Der opstod en fejl. Prøv venligst igen.');
+        }
+    });
 
     infoDiv.appendChild(title);
     infoDiv.appendChild(typeInfo);
