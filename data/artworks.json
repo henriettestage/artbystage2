@@ -1,6 +1,6 @@
 [
     {
-        "id": 8,
+        "id": 7,
         "title": "The ice is melting",
         "slug": "ice-is-melting",
         "category": "Abstrakt",
@@ -10,14 +10,14 @@
         "type": "Mixed",
         "price": 3500,
         "images": [
-            "hero_8.jpg",
+            "hero_7.jpg",
             "iceismelting.jpg"
         ],
         "featured": true,
         "sold": false
     },
     {
-        "id": 7,
+        "id": 8,
         "title": "Lysets vogter",
         "slug": "lysets-vogter",
         "category": "Abstrakt",
@@ -27,7 +27,7 @@
         "type": "Akryl",
         "price": 3900,
         "images": [
-            "hero_7.jpg",
+            "hero_8.jpg",
             "kitchen.jpg"
         ],
         "featured": true,
