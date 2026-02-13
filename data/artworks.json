@@ -1,5 +1,22 @@
 [
     {
+        "id": 7,
+        "title": "Lysets vogter",
+        "slug": "lysets-vogter",
+        "category": "Abstrakt",
+        "shortDescription": "Et stille symbol på styrke, sårbarhed og beskyttelse",
+        "longDescription": "I grænselandet mellem det jordiske og det guddommelige står hun – båret af vinger og badet i gyldent lys. En stille påmindelse om den indre kraft, der våger i os alle.",
+        "dimensions": "100 x 100 cm",
+        "type": "Akryl",
+        "price": 3900,
+        "images": [
+            "hero_7.jpg",
+            "kitchen.jpg"
+        ],
+        "featured": true,
+        "sold": false
+    },
+    {
         "id": 1,
         "title": "To perspektiver",
         "slug": "naturens-flow",
@@ -8,7 +25,7 @@
         "longDescription": "Vendt den ene vej leder de lodrette strøg tankerne hen på et gyldent landskab, der spejler sig i vandet og indbyder til ro og eftertanke. Vendt den anden vej indbyder værket til en ny fortælling, hvor energien stiger opad, som om det trækker dig ind i en dynamisk og kraftfuld bevægelse.",
         "dimensions": "80 x 80 cm",
         "type": "Akryl",
-        "price":3000,
+        "price": 3000,
         "images": [
             "hero_1.jpg"
         ],
@@ -90,11 +107,10 @@
         "type": "Akryl",
         "price": 3900,
         "images": [
-            "hero_6.jpg","closeup.JPG"
+            "hero_6.jpg",
+            "closeup.JPG"
         ],
         "featured": true,
         "sold": false
     }
-    
-       
 ]
